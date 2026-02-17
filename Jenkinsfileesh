@@ -4,8 +4,8 @@ pipeline {
         stage('file handling') {
             steps {
                 script{
-                    File f1 = new file("/tmp/test.txt")
-                    def lines = f1.readLines()
+                    File file = new File("/tmp/test.txt")
+                    def lines = file.readLines()
                     println "${lines}"
                     for(line in lines) {
                         println "myline is ${line}"
