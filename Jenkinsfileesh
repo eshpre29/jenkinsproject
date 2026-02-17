@@ -1,20 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('working with conditions') {
+        stage('file handling') {
             steps {
                 script{
-                    for(int i=1;i<=5;i++) {
-                    println "value of i is ${i}"
-                    }
-                    list1 =[ "apple","ball"]
-                    for (int j in list1) {
-                        println "value of j is ${j}"
-                    }
-                    int k=1
-                    while(k<=5) {
-                        println "value of k is :${k}"
-                        k = k+1
+                    File f1 = new file("/tmp/test.txt")
+                    def lines = f1.readLines()
+                    println "${lines}"
+                    for(line in lines) {
+                        println "myline is ${line}"
                     }
                 }
             }
