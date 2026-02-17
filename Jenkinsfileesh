@@ -1,1 +1,25 @@
+pipeline {
+    agent any
+    parameters {
+  choice choices: ['dev', 'prod'], description: 'select environment', name: 'ENV'
+}
+environment {
+  JAVA_HOME = "/opt/bin/java11"
+}
 
+
+    stages {
+        stage('welcome') {
+            steps {
+                script{
+                     var1 =20
+                     println "value of var1 is ${var1}"
+                     println  " myworkspace is ${WORKSPACE}"
+                     println "Selected env is ${params.ENV}"
+                     println "My javaversion is ${env.JAVA_HOME}"
+
+                }
+            }
+        }
+    }
+}
