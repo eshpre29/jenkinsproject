@@ -1,17 +1,20 @@
 pipeline {
     agent any
     stages {
-        stage('working with condition') {
+        stage('working with conditions') {
             steps {
                 script{
-                    int a=10
-                    int b=100
-                     if (a>b)
-                    {
-                        println "a value is big :${a}"
+                    for(i=1;i<=5;i++) {
+                    println "value of i is ${i}"
                     }
-                    else {
-                        println "b value is big: ${b}"
+                    list1 =[ "apple","ball"]
+                    for (j in list1) {
+                        println "value of j is ${j}"
+                    }
+                    k=1
+                    while(k<=5) {
+                        println "value of k is :${k}"
+                        k = k+1
                     }
                 }
             }
